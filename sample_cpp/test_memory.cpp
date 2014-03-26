@@ -10,13 +10,6 @@ TEST ( shared_ptr, default_value )
 	ASSERT_EQ ( nullptr, a );
 }
 
-TEST ( unique_ptr, unique_ptr )
-{
-	std::unique_ptr<int> a( new int( 10 ) );
-
-	ASSERT_EQ ( 10, *a );
-}
-
 TEST ( unique_ptr, move )
 {
 	std::unique_ptr<char> a( new char( 'a' ) );
@@ -27,3 +20,20 @@ TEST ( unique_ptr, move )
 	ASSERT_EQ ( nullptr, a );
 	ASSERT_EQ ( 'a', *b );
 }
+
+TEST ( unique_ptr, swap )
+{
+	std::unique_ptr<int> a( new int( 10 ) );
+	std::unique_ptr<int> b;
+
+	a.swap(b);
+
+	ASSERT_EQ ( nullptr, a );
+	ASSERT_EQ ( 10, *b );
+
+	a.swap(b); // nullptr ÇÃï˚Ç≈ì«ÇÒÇ≈Ç‡ëÂè‰ïvÅH
+
+	ASSERT_EQ ( 10, *a );
+	ASSERT_EQ ( nullptr, b );
+}
+
