@@ -1,5 +1,5 @@
 
-#include "gtest/gtest.h"
+#include "../gtest/gtest.h"
 
 #include <memory>
 
@@ -35,12 +35,12 @@ TEST ( unique_ptr, swap )
 	std::unique_ptr<int> a( new int( 10 ) );
 	std::unique_ptr<int> b;
 
-	a.swap(b);
+	a.swap( b );
 
 	ASSERT_EQ ( nullptr, a );
 	ASSERT_EQ ( 10, *b );
 
-	a.swap(b); // nullptr の方で読んでも大丈夫？
+	a.swap( b ); // nullptr の方で読んでも大丈夫？
 
 	ASSERT_EQ ( 10, *a );
 	ASSERT_EQ ( nullptr, b );

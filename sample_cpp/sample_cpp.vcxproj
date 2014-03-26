@@ -79,7 +79,7 @@
   <ItemGroup>
     <ClCompile Include="gtest-all.cc" />
     <ClCompile Include="gtest_main.cc" />
-    <ClCompile Include="test_memory.cpp" />
+    <ClCompile Include="src\test_memory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
