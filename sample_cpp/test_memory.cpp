@@ -10,6 +10,15 @@ TEST ( shared_ptr, default_value )
 	ASSERT_EQ ( nullptr, a );
 }
 
+TEST ( shared_ptr, reset )
+{
+	std::shared_ptr<float> a( new float( 1.0f ) );
+
+	a.reset();
+
+	ASSERT_EQ ( nullptr, a );
+}
+
 TEST ( unique_ptr, move )
 {
 	std::unique_ptr<char> a( new char( 'a' ) );
