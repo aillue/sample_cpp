@@ -46,3 +46,13 @@ TEST ( unique_ptr, swap )
 	ASSERT_EQ ( nullptr, b );
 }
 
+TEST ( shared_unique_ptr, move_to_shared_ptr_from_unique_ptr )
+{
+	std::shared_ptr<int> a;
+	std::unique_ptr<int> b( new int( 1 ) );
+
+	a = std::move( b );// ok:unique_ptr Å® shared_ptr (ãtÇÕÉ_ÉÅ)
+
+	ASSERT_EQ ( 1, *a );
+	ASSERT_EQ ( nullptr, b );
+}

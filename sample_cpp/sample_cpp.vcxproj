@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClCompile Include="gtest-all.cc" />
     <ClCompile Include="gtest_main.cc" />
+    <ClCompile Include="src\test_array.cpp" />
     <ClCompile Include="src\test_memory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
