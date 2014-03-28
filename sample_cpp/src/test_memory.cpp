@@ -67,3 +67,21 @@ TEST ( rvalue_reference, move )
 
 	ASSERT_EQ ( "test", a );
 }
+
+namespace // ファイル内限定
+{
+char *func()
+{
+	char a[10] ;
+	strcpy_s( a, 10, "test" );
+
+	return a;
+}
+}// namespace
+
+TEST ( rvalue_reference, constrain )
+{
+	char* && value_ref = func();// funcの返り値は関数が返るとともに消えるはずであるが、それをrvalueの参照という形で寿命を保持する
+
+	ASSERT_EQ ( 0, strcmp( "test", value_ref ) );
+}

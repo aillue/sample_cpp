@@ -21,11 +21,14 @@ TEST ( decltype, set )
 	ASSERT_EQ ( 1, b );
 }
 
+namespace // ファイル内限定
+{
 int a;
 decltype( a ) func()
 {
 	return 2.0f;   // 0.0fは、aの型(int)になって返される
 }
+}// namespace
 
 TEST ( decltype, func )
 {
