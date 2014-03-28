@@ -56,3 +56,14 @@ TEST ( shared_unique_ptr, move_to_shared_ptr_from_unique_ptr )
 	ASSERT_EQ ( 1, *a );
 	ASSERT_EQ ( nullptr, b );
 }
+
+TEST ( rvalue_reference, move )
+{
+	std::string a;
+	std::string b = "test";
+
+	a = std::move( b );	// b はこれ以降使わないことを明示的に宣言。
+	// aへはbの中身がコピーされないで、中のポインタが渡されるように最適化を期待する
+
+	ASSERT_EQ ( "test", a );
+}
